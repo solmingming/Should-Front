@@ -6,13 +6,15 @@ import { useNavigate } from "react-router-dom";
 import btn_edit from "../images_comp/btn_edit.png";
 import btn_done from "../images_comp/btn_done.png";
 import btn_del from "../images_comp/btn_del.png";
+//icon
+import { BsFillBookmarkFill } from "react-icons/bs";
 
 const Tasks = (props) => {
     const { taskTitle, taskTime, taskPlace } = props;
 
     return (
         <Wrapper>
-            <div class="bookmark">{/*추후 아이콘으로 변경*/}</div>
+            <BsFillBookmarkFill />
             <Contents>
                 <Half_left>
                     <div class="taskTitle">{taskTitle}</div>
@@ -36,12 +38,11 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     margin: 15px;
-    .bookmark {
-        width: 20px;
-        height: 15px;
-        background-color: #666666;
-    }
 `;
+// const BsFillBookmarkFill = styled.div`
+//     width: 20px;
+//     color: #3388ec;
+// `;
 const Contents = styled.div`
     width: 280px;
     height: 100px;
