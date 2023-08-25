@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../../components/Header";
+import ChatHeader from "../../components/ChatHeader";
 
 const OnChat = () => {
     return (
         <Wrapper>
-            <Header title="2023.08.23.WED" />
+            <ChatHeader title="2023.08.23.WED" />
         </Wrapper>
     );
 };
