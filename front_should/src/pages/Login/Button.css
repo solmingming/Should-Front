@@ -1,0 +1,18 @@
+/* WelcomePage.css */
+/* ... (다른 스타일들) ... */
+
+.sign-in-button,
+.sign-up-button {
+    width: 150px; /* 예시: 버튼의 폭을 150px로 조정 */
+    height: 40px; /* 예시: 버튼의 높이를 40px로 조정 */
+    padding: 0.5rem;
+    font-size: 1rem;
+    background-color: #1a2d4d;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+/* ... (다른 스타일들) ... */
