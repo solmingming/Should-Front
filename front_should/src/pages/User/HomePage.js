@@ -12,7 +12,9 @@ import mainRecord from "../images/mainRecord.png";
 import mainGochat from "../images/mainGochat.png";
 
 const HomePage = () => {
+    
     return (
+        <div className="home-page">
         <Wrapper>
             <HomeHeader title="2023.08.23 WED" />
             <CategoryWrapper>
@@ -104,7 +106,9 @@ const HomePage = () => {
                     />
                 </TaskList>
             </TaskWrapper>
+           
         </Wrapper>
+        </div>
     );
 };
 
