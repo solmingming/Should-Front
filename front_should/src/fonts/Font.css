@@ -5,6 +5,13 @@
     font-weight: 600;
     src: url("./Lemon-Regular.woff") format("woff");
 }
+/*lemon*/
+@font-face {
+    font-family: "Lemon_t";
+    font-style: normal;
+    font-weight: 600;
+    src: url("./Lemon-Regular.ttf") format("truetype");
+}
 /*InknutAntiqua*/
 @font-face {
     font-family: "InknutAntiqua-Black";
@@ -91,3 +98,49 @@
     font-weight: 600;
     src: url("./Pretendard-SemiBold.woff") format("woff");
 }
+
+/*Pretendard_ttf*/
+
+@font-face {
+    font-family: "Pretendard-Black_t";
+    font-style: normal;
+    font-weight: 200;
+    src: url("./Pretendard-Black.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Pretendard-Bold_t";
+    font-style: normal;
+    font-weight: 600;
+    src: url("./Pretendard-Bold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Pretendard-ExtraBold_t";
+    font-style: normal;
+    font-weight: 200;
+    src: url("./Pretendard-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Pretendard-Light_t";
+    font-style: normal;
+    font-weight: 200;
+    src: url("./Pretendard-Light.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Pretendard-Medium_t";
+    font-style: normal;
+    font-weight: 200;
+    src: url("./Pretendard-Medium.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Pretendard-Regular_t";
+    font-style: normal;
+    font-weight: 600;
+    src: url("./Pretendard-Regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Pretendard-SemiBold_t";
+    font-style: normal;
+    font-weight: 600;
+    src: url("./Pretendard-SemiBold.ttf") format("truetype");
+}
+
