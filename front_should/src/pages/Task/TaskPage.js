@@ -11,16 +11,58 @@ const TaskPage = () => {
         <Wrapper>
             <Header title="2023.08.23.WED" />
             <Background>
-                <TaskwithEdit
-                    taskTitle="Go to groceries"
-                    taskTime={
-                        <span>
-                            08/23 <br />
-                            14:00-15:00
-                        </span>
-                    }
-                    taskPlace="Home-plus"
-                />
+                <TaskWrapper>
+                    <TaskwithEdit
+                        taskTitle="Go to groceries"
+                        taskTime={
+                            <span>
+                                08/23 <br />
+                                14:00-15:00
+                            </span>
+                        }
+                        taskPlace="Home-plus"
+                    />
+                    <TaskwithEdit
+                        taskTitle="Go to groceries"
+                        taskTime={
+                            <span>
+                                08/23 <br />
+                                14:00-15:00
+                            </span>
+                        }
+                        taskPlace="Home-plus"
+                    />
+                    <TaskwithEdit
+                        taskTitle="Go to groceries"
+                        taskTime={
+                            <span>
+                                08/23 <br />
+                                14:00-15:00
+                            </span>
+                        }
+                        taskPlace="Home-plus"
+                    />
+                    <TaskwithEdit
+                        taskTitle="Go to groceries"
+                        taskTime={
+                            <span>
+                                08/23 <br />
+                                14:00-15:00
+                            </span>
+                        }
+                        taskPlace="Home-plus"
+                    />
+                    <TaskwithEdit
+                        taskTitle="Go to groceries"
+                        taskTime={
+                            <span>
+                                08/23 <br />
+                                14:00-15:00
+                            </span>
+                        }
+                        taskPlace="Home-plus"
+                    />
+                </TaskWrapper>
                 <div className="btn_plus">
                     <img src={btn_plus} />
                 </div>
@@ -55,4 +97,7 @@ const Background = styled.div`
         position: fixed;
         top: 91%;
     }
+`;
+const TaskWrapper = styled.div`
+    overflow-y: auto;
 `;
