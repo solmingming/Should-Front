@@ -9,7 +9,8 @@ import Choice_AiPage from "./pages/Login/Choice_AiPage";
 import StartChatDaPage from "./pages/StartChatda/StartChatDaPage";
 import SelectSignUpPage from "./pages/SelectSignUpPage/SelectSignUpPage"; 
 import KakaoSignUpPage from "./pages/KakaoSignupPage/KakaoSignUpPage";
- // Add this line
+import Calendar from "./pages/Calendar/Calendar";
+
 
 function App() {
     return (
@@ -25,8 +26,9 @@ function App() {
                     <Route path="/welcomepage" element={<WelcomePage />} /> 
                     <Route path="/selectsignuppage" element={<SelectSignUpPage />} />
                     <Route path="/kakaosignuppage" element={<KakaoSignUpPage />} />
+                    <Route path="/calendar" element={<Calendar />} />
                    
-                    <Route path="/" element={<StartChatDaPage />} />
+                    <Route path="/" element={<Calendar />} />
                 </Routes>
             </Router>
         

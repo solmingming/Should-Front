@@ -143,4 +143,51 @@
     font-weight: 600;
     src: url("./Pretendard-SemiBold.ttf") format("truetype");
 }
+/*InknutAntiqua_ttf*/
+@font-face{
+    font-family: "InknutAntiqua-Black_t";
+    font-style: normal;
+    font-weight: 200;
+    src: url("./InknutAntiqua-Black.ttf") format("truetype");
+}
+@font-face{
+    font-family: "InknutAntiqua-Bold_t";
+    font-style: normal;
+    font-weight: 600;
+    src: url("./InknutAntiqua-Bold.ttf") format("truetype");
+}
 
+@font-face{
+    font-family: "InknutAntiqua-ExtraBold_t";
+    font-style: normal;
+    font-weight: 200;
+    src: url("./InknutAntiqua-ExtraBold.ttf") format("truetype");
+}
+
+@font-face{
+    font-family: "InknutAntiqua-Light_t";
+    font-style: normal;
+    font-weight: 200;
+    src: url("./InknutAntiqua-Light.ttf") format("truetype");
+}
+
+@font-face{
+    font-family: "InknutAntiqua-Medium_t";
+    font-style: normal;
+    font-weight: 200;
+    src: url("./InknutAntiqua-Medium.ttf") format("truetype");
+}
+
+@font-face{
+    font-family: "InknutAntiqua-Regular_t";
+    font-style: normal;
+    font-weight: 600;
+    src: url("./InknutAntiqua-Regular.ttf") format("truetype");
+}
+
+@font-face{
+    font-family: "InknutAntiqua-SemiBold_t";
+    font-style: normal;
+    font-weight: 600;
+    src: url("./InknutAntiqua-SemiBold.ttf") format("truetype");
+}
