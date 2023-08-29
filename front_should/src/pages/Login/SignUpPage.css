@@ -36,7 +36,17 @@
 }
 
 
-.input_2{
+
+
+.label{
+    font-size: 1rem;
+    font-family: Pretendard-Regular_t;
+    color: #000000;
+    margin-bottom: 0.2rem;
+    margin-left:0rem;
+}
+
+.input{
     width: 80%;
     height:2rem; /* 버튼의 폭 조정 */
     padding: 0.2rem; /* 버튼 내부의 여백 조정 */
@@ -48,14 +58,6 @@
     border:4px solid #1a2d4d;
     cursor: pointer;
     margin-top: 1rem;
-    
-}
-.label{
-    font-size: 1rem;
-    font-family: Pretendard-Regular_t;
-    color: #000000;
-    margin-bottom: 0.2rem;
-    margin-left:0rem;
 }
 
 
