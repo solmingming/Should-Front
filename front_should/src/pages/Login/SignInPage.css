@@ -1,68 +1,89 @@
 /* SignInPage.css */
 .sign-in-page {
     display: flex;
-    align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #f5f5f5;
+    background-color: #ffffff;
 }
 
 .content-container {
     text-align: center;
+    justify-content: center;
+    margin-top: 5rem;
+    line-height: 2rem;
+  
+
 }
 
-.main-title {
-    font-size: 36px;
-    margin-bottom: 100rem;
+.maintitle {
+    font-size: 4.5rem;
+    margin-top: 10rem;
+    font-family: 'lemon_t';
+    color: #1a2d4d;
+
 }
 
 .subtitle {
-    font-size: 24px;
-    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    font-family: 'Pretendard-Black_t';
+    color: #1a2d4d;
 }
 
-.input-row {
+
+.input-container {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-top: 5rem;
+    gap:1.5rem;
 }
-
-.label {
-    font-size: 16px;
-}
-
-input {
-    width: 100%;
-    padding: 0.5rem;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 0.2rem;
-}
-
-.sign-in-button {
-    width: 150px; /* 예시: 버튼의 폭을 150px로 조정 */
-    height: 40px; /* 예시: 버튼의 높이를 40px로 조정 */
-    padding: 0.5rem;
+input{
+    
+    width: 15rem;
+    height: 2.8rem;
     font-size: 1rem;
+    font-family: Pretendard-Regular_t;
+    padding: 0.5rem;
+    border: 4px solid #1a2d4d;
+    border-radius: 10px;
+    margin-top: 0.3rem;
+
+}
+.sign-in-button {
+    width: 70%; /* 예시: 버튼의 폭을 150px로 조정 */
+    height: 2.5rem; /* 예시: 버튼의 높이를 40px로 조정 */
+    padding: 0.5rem;
+    font-size: 1.3rem;
+    font-family: Pretendard-Regular_t;
     background-color: #1a2d4d;
     color: #ffffff;
-    border: none;
     cursor: pointer;
-    border-radius: 5px;
-    margin-top: 1rem;
+    border-radius: 10px;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    
 }
 
+.content-link-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    line-height: 0.3rem;
+}
 .forgot-links {
     margin-top: 1rem;
     font-size: 14px;
+    font-family: Pretendard-Regular_t;
 }
 
-.forgot-links a {
+.forgot-links a{
     margin-right: 1rem;
-    color: #007bff;
-    text-decoration: none;
+    color: #000000;
+    
+    
 }
 
 .forgot-links a:hover {

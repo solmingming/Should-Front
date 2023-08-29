@@ -1,0 +1,35 @@
+/*SelectSignUp.css*/
+
+.content-container1 {
+    text-align: center;
+    justify-content: center;
+    margin-top:15.5rem;
+    line-height: 2rem;
+    margin-bottom: 4.5rem;
+}
+.kakao-button{
+   
+    width: 18rem;
+    height:4.3rem; /* 버튼의 폭 조정 */
+    padding: 0.5rem; /* 버튼 내부의 여백 조정 */
+    font-size: 1.2rem;
+    font-family: Pretendard-SemiBold_t;
+    background-color: #f3db03;
+    color: #000000;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.self-button{
+    width: 18rem;
+    height:4.3rem; /* 버튼의 폭 조정 */
+    padding: 0.5rem; /* 버튼 내부의 여백 조정 */
+    font-size: 1.2rem;
+    font-family: Pretendard-Regular_t;
+    background-color: #1a2d4d;
+    color: #ffffff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}

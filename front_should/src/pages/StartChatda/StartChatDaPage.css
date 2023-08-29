@@ -1,0 +1,23 @@
+/*StartChatDaPage.css*/
+.start-chat-da-page{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    background-color:#1a2d4d;
+}
+
+.start-maintitle{
+    color:#FFFFFF;
+    font-family: lemon_t;
+   font-size: 4.5rem;
+   margin-top: 1rem;
+}
+.start-subtitle{
+    color:#FFFFFF;
+    font-size: 1rem;
+    font-family: Pretendard-Regular_t;
+    margin-bottom: 1rem;
+    line-height: 2rem;; 
+}
+
