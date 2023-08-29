@@ -14,7 +14,9 @@ const Tasks = (props) => {
 
     return (
         <Wrapper>
-            <BsFillBookmarkFill />
+            <BookmarkWrapper>
+                <BsFillBookmarkFill />
+            </BookmarkWrapper>
             <Contents>
                 <Half_left>
                     <div class="taskTitle">{taskTitle}</div>
@@ -37,7 +39,6 @@ export default Tasks;
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    margin: 15px;
 `;
 // const BsFillBookmarkFill = styled.div`
 //     width: 20px;
@@ -51,6 +52,12 @@ const Contents = styled.div`
     justify-content: space-between;
     background-color: rgba(233, 236, 51, 0.3);
     padding: 20px;
+`;
+const BookmarkWrapper = styled.div`
+    position: relative;
+    top: 15px;
+    left: 10px;
+    z-index: 1;
 `;
 const Half_left = styled.div`
     display: flex;
