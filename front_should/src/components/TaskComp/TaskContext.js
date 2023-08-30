@@ -24,7 +24,7 @@ const initialTodos = [
     },
     {
         id: 4,
-        done: true,
+        done: false,
         taskTitle: "Go to bookstore",
         taskTime: "08/23 14:00-15:00",
         taskPlace: "Home-plus",

@@ -31,7 +31,7 @@ const Tasks = (props) => {
                 </Half_left>
                 <Half_right>
                     <div class="taskPlace">{taskPlace}</div>
-                    <BtnWrapper>
+                    <BtnWrapper done={done}>
                         <img src={btn_edit} />
                         <img onClick={onToggle} done={done} src={btn_done} />
                         <img onClick={onRemove} src={btn_del} />

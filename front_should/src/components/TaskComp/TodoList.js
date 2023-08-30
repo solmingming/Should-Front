@@ -6,12 +6,27 @@ import { useTodoState } from "./TaskContext";
 
 const TodoList = () => {
     const todos = useTodoState();
+
+    const undoneTasks = todos.filter((todo) => !todo.done);
+    const doneTasks = todos.filter((todo) => todo.done);
+
     return (
         <TodoListBlock>
-            {todos.map((todo) => (
+            {undoneTasks.map((todo) => (
                 <TaskwithEdit
                     key={todo.id}
                     id={todo.id}
+                    done={todo.done}
+                    taskTitle={todo.taskTitle}
+                    taskTime={todo.taskTime}
+                    taskPlace={todo.taskPlace}
+                />
+            ))}
+            {doneTasks.map((todo) => (
+                <TaskwithEdit
+                    key={todo.id}
+                    id={todo.id}
+                    done={todo.done}
                     taskTitle={todo.taskTitle}
                     taskTime={todo.taskTime}
                     taskPlace={todo.taskPlace}

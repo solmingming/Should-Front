@@ -2,10 +2,41 @@ import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { MdAdd } from "react-icons/md";
 import "../../fonts/Font.css";
+import { useTodoDispatch, useTodoNextId } from "./TaskContext";
 
 const TaskCreate = () => {
     const [open, setOpen] = useState(false);
+    //const [value, setValue] = useState("");
+    const [taskTitle, setTaskTitle] = useState("");
+    const [taskTime, setTaskTime] = useState("");
+    const [taskPlace, setTaskPlace] = useState("");
+
+    const dispatch = useTodoDispatch();
+    const nextId = useTodoNextId;
+
     const onToggle = () => setOpen(!open);
+    const onTitleChange = (e) => setTaskTitle(e.target.value);
+    const onTimeChange = (e) => setTaskTime(e.target.value);
+    const onPlaceChange = (e) => setTaskPlace(e.target.value);
+
+    const onSubmit = (e) => {
+        dispatch({
+            type: "CREATE",
+            todo: {
+                id: nextId.current,
+                done: false,
+                taskTitle: taskTitle,
+                taskTime: taskTime,
+                taskPlace: taskPlace,
+            },
+        });
+        setTaskTitle("");
+        setTaskTime("");
+        setTaskPlace("");
+        setOpen(false);
+
+        nextId.current += 1;
+    };
 
     return (
         <>
@@ -19,20 +50,31 @@ const TaskCreate = () => {
                             What?
                         </div>
                         <Input
-                            autoFocus
                             placeholder="Please enter what to do"
+                            onChange={onTitleChange}
+                            value={taskTitle}
                         />
                     </InsertForm>
                     <InsertForm>
                         <div className="inputTitle">When?</div>
-                        <Input placeholder="Please enter when to do" />
+                        <Input
+                            placeholder="Please enter when to do"
+                            onChange={onTimeChange}
+                            value={taskTime}
+                        />
                     </InsertForm>
                     <InsertForm>
                         <div className="inputTitle">Where?</div>
-                        <Input placeholder="Please enter where to do" />
+                        <Input
+                            placeholder="Please enter where to do"
+                            onChange={onPlaceChange}
+                            value={taskPlace}
+                        />
                     </InsertForm>
                     <CompleteBtn>
-                        <div className="addbtn">Add to tasks</div>
+                        <div className="addbtn" onClick={onSubmit}>
+                            Add to tasks
+                        </div>
                     </CompleteBtn>
                 </InsertFormPositioner>
             )}
