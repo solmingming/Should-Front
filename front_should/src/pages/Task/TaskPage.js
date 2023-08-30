@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import Header from "../../components/Header";
+//comp
 import TaskwithEdit from "../../components/TaskComp/TaskwithEdit";
-
+import TodoList from "../../components/TaskComp/TodoList";
+import TaskCreate from "../../components/TaskComp/TaskCreate";
 //img
 import btn_plus from "../images/btn_plus.png";
 
@@ -11,19 +13,13 @@ const TaskPage = () => {
         <Wrapper>
             <Header title="2023.08.23.WED" />
             <Background>
-                <TaskwithEdit
-                    taskTitle="Go to groceries"
-                    taskTime={
-                        <span>
-                            08/23 <br />
-                            14:00-15:00
-                        </span>
-                    }
-                    taskPlace="Home-plus"
-                />
-                <div className="btn_plus">
-                    <img src={btn_plus} />
-                </div>
+                <TodoList />
+                {/*<AddTask>
+                    <div className="btn_plus">
+                        <img src={btn_plus} />
+                    </div>
+    </AddTask>*/}
+                <TaskCreate />
             </Background>
         </Wrapper>
     );
@@ -48,6 +44,14 @@ const Background = styled.div`
     background-color: white;
     border-radius: 30px;
     top: 14%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+const TaskWrapper = styled.div`
+    overflow-y: auto;
+`;
+const AddTask = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
