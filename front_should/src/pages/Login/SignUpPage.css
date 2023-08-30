@@ -46,11 +46,23 @@
     margin-left:0.7rem;
     margin-bottom: 0.7rem;
 }
-
-.input_signup.password{
+input{
     width: 100%;
     height:2rem; /* 버튼의 폭 조정 */
     padding: 0.2rem; /* 버튼 내부의 여백 조정 */
+    font-size: 1.2rem;
+    font-family: Pretendard-Regular_t;
+
+    color: #000000;
+    border-radius: 20rem;
+    border:4px solid #1a2d4d;
+    cursor: pointer;
+    margin-top: 0rem;
+}
+/* .password{
+    width: 100%;
+    height:2rem; 
+    padding: 0.2rem; 
     font-size: 1.2rem;
     font-family: Pretendard-Regular_t;
 
@@ -61,10 +73,10 @@
     margin-top: 0rem;
 }
 
-.input_signup.nickname{
+.nickname{
     width: 100%;
-    height:2rem; /* 버튼의 폭 조정 */
-    padding: 0.2rem; /* 버튼 내부의 여백 조정 */
+    height:2rem; 
+    padding: 0.2rem; 
     font-size: 1.2rem;
     font-family: Pretendard-Regular_t;
 
@@ -75,10 +87,10 @@
     margin-top: 0rem;
 }
 
-.input_signup.ID{
+.ID{
     width: 100%;
-    height:2rem; /* 버튼의 폭 조정 */
-    padding: 0.2rem; /* 버튼 내부의 여백 조정 */
+    height:2rem; 
+    padding: 0.2rem; 
     font-size: 1.2rem;
     font-family: Pretendard-Regular_t;
 
@@ -88,10 +100,10 @@
     cursor: pointer;
     margin-top: 0rem;
 }
-.input_signup.confirm-password{
+.confirm-password{
     width: 100%;
-    height:2rem; /* 버튼의 폭 조정 */
-    padding: 0.2rem; /* 버튼 내부의 여백 조정 */
+    height:2rem; 
+    padding: 0.2rem; 
     font-size: 1.2rem;
     font-family: Pretendard-Regular_t;
 
@@ -102,4 +114,4 @@
     margin-top: 0rem;
 }
 
-
+ */

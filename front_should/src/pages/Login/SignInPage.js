@@ -31,9 +31,11 @@ const SignInPage = () => {
         <h1 className="subtitle">SIGN IN</h1>
        <div className="input-container">
         <div className="input_signin">
-          <input
+          <input 
+            type="text" 
+            className="input-signin"
+            placeholder="  ID"
             label="ID"
-            type="text"
             id="userId"
             value={userId}
             onChange={(e) => setUserId(e.target.value)}
@@ -43,6 +45,7 @@ const SignInPage = () => {
           <input
             label="Password"
             type="password"
+            placeholder="  PW"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

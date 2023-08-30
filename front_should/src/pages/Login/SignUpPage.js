@@ -75,18 +75,17 @@ const SignUpPage = () => {
           <div className="profile-image-container">
             {/* Input for uploading profile image */}
 
-            <div className="input_signup">
             <input
               type="file"
               accept="image/*"
               onChange={handleImageChange}/>
-            </div>
+           
             {selectedImage && <img src={selectedImage} alt="프로필 사진 미리보기" />}
           </div>
             <div className="signupcontainer">
           
             <div className="label_signup">Nickname</div>
-            <div className="input_signup">
+            
     <input
         className="nickname"
         type="text" 
@@ -102,7 +101,7 @@ const SignUpPage = () => {
             
             <div className="input_signup.ID">
               <input
-              className="ID"
+              className='ID'
               type="text" 
               id="username" 
               value={username} onChange={(e) => setUsername(e.target.value)} />
@@ -123,15 +122,15 @@ const SignUpPage = () => {
   
           
           <div className="label_signup">Confirm PW</div>
-          <div className="input_signup">
+
           <input
-              className="confirm-password"
+             
               type="password"
               id="confirmPassword"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}/>
              
-          </div>
+          </form>
           
          
           <div className="label_signup">Birth</div>
@@ -153,14 +152,15 @@ const SignUpPage = () => {
             </div>
 
 
-          </div>
+         
            <button className="sign-in-button" onClick={handleSignUpCheck}>
               SIGN UP
             </button>
-            </form>
+           
         
-    </div>
-    </div>
+      </div>
+</div>
+   
     
        
        
