@@ -30,7 +30,7 @@ const SignInPage = () => {
         <h1 className="maintitle">CHAT.DA</h1>
         <h1 className="subtitle">SIGN IN</h1>
        <div className="input-container">
-        <div className="input1">
+        <div className="input_signin">
           <input
             label="ID"
             type="text"
@@ -39,7 +39,7 @@ const SignInPage = () => {
             onChange={(e) => setUserId(e.target.value)}
           />
         </div>
-        <div className="input1">
+        <div className="input_signin">
           <input
             label="Password"
             type="password"

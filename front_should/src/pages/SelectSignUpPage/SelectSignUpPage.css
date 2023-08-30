@@ -14,11 +14,17 @@
     padding: 0.5rem; /* 버튼 내부의 여백 조정 */
     font-size: 1.2rem;
     font-family: Pretendard-SemiBold_t;
-    background-color: #f3db03;
+    background-color: #FFE300;
     color: #000000;
     border-radius: 10px;
     border: none;
     cursor: pointer;
+
+    background-image: url("../images/Kakaotalkicon.png");
+
+    background-position: 0.7rem 1rem;
+
+    background-repeat: no-repeat;
 }
 
 .self-button{
