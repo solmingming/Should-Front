@@ -5,7 +5,7 @@ import TaskwithEdit from "../TaskComp/TaskwithEdit";
 import { useTodoState } from "./TaskContext";
 
 const TodoList = () => {
-    const todos = useTodoState();
+    const todos = useTodoState() || [];
 
     const undoneTasks = todos.filter((todo) => !todo.done);
     const doneTasks = todos.filter((todo) => todo.done);
