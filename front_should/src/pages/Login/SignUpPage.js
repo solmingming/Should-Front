@@ -69,51 +69,72 @@ const SignUpPage = () => {
   return (
     <div className="sign-up-page">
       <div className="whole-container">
-          <div className="maintitle">CHAT.DA</div>
-          <form onSubmit={handleSubmit}>
-          <input type="file" accept="image/*" onChange={handleImageChange} />
-          {selectedImage && <img src={selectedImage} alt="프로필 사진 미리보기" />}
-          </form>
+        <div className="maintitle">CHAT.DA</div>
+
+        <form onSubmit={handleSubmit}>
+          <div className="profile-image-container">
+            {/* Input for uploading profile image */}
+
+            <div className="input_signup">
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}/>
+            </div>
+            {selectedImage && <img src={selectedImage} alt="프로필 사진 미리보기" />}
+          </div>
             <div className="signupcontainer">
           
-              <div className="input-signup">
-              <div className="label">Nickname</div>
-              <input 
-              type="text" 
-              id="nickname" 
-              value={nickname} onChange={(e) => setNickname(e.target.value)} />
-          </div>
+            <div className="label_signup">Nickname</div>
+            <div className="input_signup">
+    <input
+        className="nickname"
+        type="text" 
+        id="nickname" 
+        value={nickname} onChange={(e) => setNickname(e.target.value)} 
+       
+    />
+</div>
   
         
-          <div className="input-sign-up">
-            <div className="label">ID</div>
+          
+            <div className="label_signup">ID</div>
             
-            <input
-            type="text" 
-            id="username" 
-            value={username} onChange={(e) => setUsername(e.target.value)} />
+            <div className="input_signup.ID">
+              <input
+              className="ID"
+              type="text" 
+              id="username" 
+              value={username} onChange={(e) => setUsername(e.target.value)} />
+              
           </div>
   
          
-          <div className="input-sign-up">
-          <div className="label">PW</div>
-            <input 
+         
+          <div className="label_signup">PW</div>
+           <div className="input_signup">
+           <input
+           className='password'
             type="password" 
             id="password" 
             value={password} onChange={(e) => setPassword(e.target.value)} />
+            
           </div>
   
-          <div className input_2>
-          <div className="label">Confirm PW</div>
-            <input
+          
+          <div className="label_signup">Confirm PW</div>
+          <div className="input_signup">
+          <input
+              className="confirm-password"
               type="password"
               id="confirmPassword"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}/>
+             
           </div>
           
          
-          <div className="label">Birth</div>
+          <div className="label_signup">Birth</div>
                 <div className="birth-selectors">
                  <select id="birthYear" value={birthYear} onChange={(e) => setBirthYear(e.target.value)}>
                  <option value="">Year</option>
@@ -136,10 +157,11 @@ const SignUpPage = () => {
            <button className="sign-in-button" onClick={handleSignUpCheck}>
               SIGN UP
             </button>
+            </form>
         
     </div>
     </div>
-          
+    
        
        
     

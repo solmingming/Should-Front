@@ -29,16 +29,20 @@
     font-size: 0.875rem; /* 변경: px -> rem */
   }
   
-  .calendar-day {
+  .calendar-day-link {
+     
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 2.5rem; /* 변경: px -> rem */
-    width: 2.5rem; /* 변경: px -> rem */
-    border: none;
+    height: 2.5rem;
+    width: 2.5rem; 
+    color: #000000;
     font-family: Pretendard-Regular_t;
-    margin: 0.125rem; /* 변경: px -> rem */
+    margin: 0.125rem; 
+    /*transition: background-color 0.3s ease-in-out;*/
   }
+
+  
   
   .calendar-week {
     display: grid;

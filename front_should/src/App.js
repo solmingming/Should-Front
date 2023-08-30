@@ -10,6 +10,7 @@ import StartChatDaPage from "./pages/StartChatda/StartChatDaPage";
 import SelectSignUpPage from "./pages/SelectSignUpPage/SelectSignUpPage";
 import KakaoSignUpPage from "./pages/KakaoSignupPage/KakaoSignUpPage";
 import Calendar from "./pages/Calendar/Calendar";
+import DatePage from "./pages/Calendar/DatePage";   
 
 import { TodoProvider } from "./components/TaskComp/TaskContext";
 
@@ -35,7 +36,10 @@ function App() {
                     />
                     <Route path="/calendar" element={<Calendar />} />
 
-                    <Route path="/" element={<Calendar />} />
+                    <Route path="/startchatdapage" element={<StartChatDaPage />} />
+                   <Route path="/calendar/:date" element={<DatePage />} />
+                    <Route path="/" element={<StartChatDaPage/>} />
+
                 </Routes>
             </Router>
         </TodoProvider>
