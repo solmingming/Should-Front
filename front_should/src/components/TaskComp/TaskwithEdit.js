@@ -1,7 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import styled, { css } from "styled-components";
 import "../../fonts/Font.css";
 import { useNavigate } from "react-router-dom";
+import { useTodoDispatch } from "./TaskContext";
+
 //img
 import btn_edit from "../images_comp/btn_edit.png";
 import btn_done from "../images_comp/btn_done.png";
@@ -10,24 +12,29 @@ import btn_del from "../images_comp/btn_del.png";
 import { BsFillBookmarkFill } from "react-icons/bs";
 
 const Tasks = (props) => {
-    const { taskTitle, taskTime, taskPlace } = props;
+    const { id, done, taskTitle, taskTime, taskPlace } = props;
+    const dispatch = useTodoDispatch();
+    const onToggle = () => dispatch({ type: "TOGGLE", id });
+    const onRemove = () => dispatch({ type: "REMOVE", id });
 
     return (
         <Wrapper>
             <BookmarkWrapper>
                 <BsFillBookmarkFill />
             </BookmarkWrapper>
-            <Contents>
-                <Half_left>
-                    <div class="taskTitle">{taskTitle}</div>
+            <Contents done={done}>
+                <Half_left done={done}>
+                    <div done={done} class="taskTitle">
+                        {taskTitle}
+                    </div>
                     <div class="taskTime">{taskTime}</div>
                 </Half_left>
                 <Half_right>
                     <div class="taskPlace">{taskPlace}</div>
                     <BtnWrapper>
                         <img src={btn_edit} />
-                        <img src={btn_done} />
-                        <img src={btn_del} />
+                        <img onClick={onToggle} done={done} src={btn_done} />
+                        <img onClick={onRemove} src={btn_del} />
                     </BtnWrapper>
                 </Half_right>
             </Contents>
@@ -52,18 +59,26 @@ const Contents = styled.div`
     justify-content: space-between;
     background-color: rgba(233, 236, 51, 0.3);
     padding: 20px;
+    ${(props) =>
+        props.done &&
+        css`
+            background-color: #a3a3a3;
+        `}
 `;
 const BookmarkWrapper = styled.div`
     position: relative;
     top: 15px;
     left: 10px;
-    z-index: 1;
 `;
 const Half_left = styled.div`
     display: flex;
     flex-direction: column;
     max-width: 150px;
-
+    ${(props) =>
+        props.done &&
+        css`
+            text-decoration: line-through;
+        `}
     .taskTitle {
         height: 120px;
         color: black;
