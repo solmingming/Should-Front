@@ -11,6 +11,8 @@ import SelectSignUpPage from "./pages/SelectSignUpPage/SelectSignUpPage";
 import KakaoSignUpPage from "./pages/KakaoSignupPage/KakaoSignUpPage";
 import Calendar from "./pages/Calendar/Calendar";
 
+import Chat from "./pages/Chat/Chat";
+
 import { TodoProvider } from "./components/TaskComp/TaskContext";
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
                     <Route path="/calendar" element={<Calendar />} />
 
                     <Route path="/" element={<Calendar />} />
+
+                    <Route path="/chat" element={<Chat />} />
                 </Routes>
             </Router>
         </TodoProvider>
