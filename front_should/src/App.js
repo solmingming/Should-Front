@@ -10,6 +10,7 @@ import StartChatDaPage from "./pages/StartChatda/StartChatDaPage";
 import SelectSignUpPage from "./pages/SelectSignUpPage/SelectSignUpPage";
 import KakaoSignUpPage from "./pages/KakaoSignupPage/KakaoSignUpPage";
 import Calendar from "./pages/Calendar/Calendar";
+import DatePage from "./pages/Calendar/DatePage";   
 
 import Chat from "./pages/Chat/Chat";
 
@@ -37,9 +38,16 @@ function App() {
                     />
                     <Route path="/calendar" element={<Calendar />} />
 
+<<<<<<< HEAD
                     <Route path="/" element={<Calendar />} />
 
                     <Route path="/chat" element={<Chat />} />
+=======
+                    <Route path="/startchatdapage" element={<StartChatDaPage />} />
+                   <Route path="/calendar/:date" element={<DatePage />} />
+                    <Route path="/" element={<StartChatDaPage/>} />
+
+>>>>>>> 1849417fea112087a9ba04fb7ff558676c313df8
                 </Routes>
             </Router>
         </TodoProvider>

@@ -12,15 +12,13 @@ const SignInPage = () => {
 
 
   const handleSignIn = () => {
-    // Perform sign-in logic here
-    // You can use userId and password states for authentication
-    // For example, check if userId and password match some predefined values
+    
     if (userId === 'validUserId' && password === 'validPassword') {
-      // If authentication is successful, navigate to the home page
-      navigate("/homepage"); // Replace with the actual route for the home page
+      
+      navigate("/homepage"); 
     } else {
         navigate("/homepage");
-      // Handle unsuccessful authentication, show error message or perform other actions
+     
     }
   };
 
@@ -30,19 +28,22 @@ const SignInPage = () => {
         <h1 className="maintitle">CHAT.DA</h1>
         <h1 className="subtitle">SIGN IN</h1>
        <div className="input-container">
-        <div className="input1">
-          <input
+        <div className="input_signin">
+          <input 
+            type="text" 
+            className="input-signin"
+            placeholder="  ID"
             label="ID"
-            type="text"
             id="userId"
             value={userId}
             onChange={(e) => setUserId(e.target.value)}
           />
         </div>
-        <div className="input1">
+        <div className="input_signin">
           <input
             label="Password"
             type="password"
+            placeholder="  PW"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

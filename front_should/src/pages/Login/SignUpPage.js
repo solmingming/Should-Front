@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './SignUpPage.css'; // You can style your page using CSS
+import './SignUpPage.css'; 
+import styled from 'styled-components';
 
 
 const SignUpPage = () => {
@@ -23,18 +24,52 @@ const SignUpPage = () => {
   const [birthMonth, setBirthMonth] = useState('');
   const [birthDay, setBirthDay] = useState('');
 
-    const handleImageChange = (event) => {
-        const selectedFile = event.target.files[0];
-        
-        if (selectedFile) {
-            setSelectedImage(URL.createObjectURL(selectedFile));
-            setProfileImage(selectedFile);
-         }
-    };
+  const resizeImage = (file, maxWidth, maxHeight) => {
+    return new Promise((resolve) => {
+      const img = new Image();
+
+      img.onload = () => {
+        let width = img.width;
+        let height = img.height;
+
+        if (width > maxWidth) {
+          height *= maxWidth / width;
+          width = maxWidth;
+        }
+
+        if (height > maxHeight) {
+          width *= maxHeight / height;
+          height = maxHeight;
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+
+        canvas.toBlob((blob) => {
+          resolve(blob);
+        }, file.type);
+      };
+
+      img.src = URL.createObjectURL(file);
+    });
+  };
+
+    
+  const handleImageChange = async (event) => {
+    const selectedFile = event.target.files[0];
+
+    if (selectedFile) {
+      const resizedBlob = await resizeImage(selectedFile, 100, 100);
+      setSelectedImage(URL.createObjectURL(resizedBlob));
+      setProfileImage(resizedBlob); // Save resized image for later use
+    }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle profile image upload or processing here
     console.log('Uploaded profile image:', profileImage);
   };
 
@@ -67,53 +102,81 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className="sign-up-page">
+
+    <SignUpPageContainer className="sign-up-page">
       <div className="whole-container">
-          <div className="maintitle">CHAT.DA</div>
-          <form onSubmit={handleSubmit}>
-          <input type="file" accept="image/*" onChange={handleImageChange} />
-          {selectedImage && <img src={selectedImage} alt="프로필 사진 미리보기" />}
-          </form>
+        <div className="title">CHAT.DA</div>
+
+        <form onSubmit={handleSubmit}>
+          <div className="profile-image-container">
+            {/* Input for uploading profile image */}
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+            />
+            <ImagePreviewContainer>
+              {selectedImage && <StyledImage src={selectedImage} alt="프로필 사진 미리보기" />}
+            </ImagePreviewContainer>
+          </div>
+
             <div className="signupcontainer">
           
-              <div className="input-signup">
-              <div className="label">Nickname</div>
-              <input 
-              type="text" 
-              id="nickname" 
-              value={nickname} onChange={(e) => setNickname(e.target.value)} />
-          </div>
+            <div className="label_signup">Nickname</div>
+            
+    <input
+        className="nickname"
+        type="text" 
+        id="nickname" 
+        value={nickname} onChange={(e) => setNickname(e.target.value)} 
+       
+    />
+</div>
   
         
-          <div className="input-sign-up">
-            <div className="label">ID</div>
+          
+            <div className="label_signup">ID</div>
             
-            <input
-            type="text" 
-            id="username" 
-            value={username} onChange={(e) => setUsername(e.target.value)} />
+            <div className="input_signup.ID">
+              <input
+              className='ID'
+              type="text" 
+              id="username" 
+              value={username} onChange={(e) => setUsername(e.target.value)} />
+              
           </div>
   
          
-          <div className="input-sign-up">
-          <div className="label">PW</div>
-            <input 
+         
+          <div className="label_signup">PW</div>
+           <div className="input_signup">
+           
+           
+           
+            <input
+           
+           className='password'
             type="password" 
             id="password" 
-            value={password} onChange={(e) => setPassword(e.target.value)} />
+            value={password} onChange={(e) => setPassword(e.target.value)}
+             />
+            
           </div>
   
-          <div className input_2>
-          <div className="label">Confirm PW</div>
-            <input
+          
+          <div className="label_signup">Confirm PW</div>
+
+          <input
+             
               type="password"
               id="confirmPassword"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}/>
-          </div>
+             
+         
           
          
-          <div className="label">Birth</div>
+          <div className="label_signup">Birth</div>
                 <div className="birth-selectors">
                  <select id="birthYear" value={birthYear} onChange={(e) => setBirthYear(e.target.value)}>
                  <option value="">Year</option>
@@ -132,22 +195,51 @@ const SignUpPage = () => {
             </div>
 
 
-          </div>
-           <button className="sign-in-button" onClick={handleSignUpCheck}>
+         
+           <button className="sign-up-button" onClick={handleSignUpCheck}>
               SIGN UP
             </button>
-        
-    </div>
-    </div>
-          
+           
+            </form>
+      </div>
+
+
+   
+    
        
-       
+       </SignUpPageContainer>
     
   );
                     };        
  
 export default SignUpPage;
 
+const ImagePreviewContainer = styled.div`
+  display: flex;
+  margin-top:3rem;
+  margin-right:rem;
+  
+  
+ 
+`;
 
+const StyledImage = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 100%; 
+  border: 2px solid #000000;
+  background-position: 1rem 1rem;
+  margin-left:3rem;
+  margin-top:3rem;
+  
+`;
+
+const SignUpPageContainer = styled.div`
+  /* Your general container styles here */
+  display: flex;
+
+  background-image: url("../images/basicprofile.png");
+  background-position: 1rem 1rem;
+`;
 
     

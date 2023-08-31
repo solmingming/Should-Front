@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';  
 import styled, { createGlobalStyle } from "styled-components";
 import Header from "../../components/Header";
 import moment from 'moment';
@@ -24,12 +25,19 @@ const Calendar = () => {
     let day = startDate.clone();
     while (day.isSameOrBefore(endDate, 'day')) {
       week.push(
-        <div key={day.format('YYYY-MM-DD')} className="calendar-day">
-          {day.format('D')}
-        </div>
+        <Link to={`/date/${day.format('YYYY-MM-DD')}`}>
+  <div
+    key={day.format('YYYY-MM-DD')}
+    className="calendar-day-link"
+    style={{ textDecoration: 'none' }}
+  >
+    {day.format('D')}
+  </div>
+</Link>
+
       );
 
-      if (day.day() === 6) { // 토요일일 때 주차를 그룹화하고 새로운 주차를 시작합니다.
+      if (day.day() === 6) {
         calendar.push(
           <div key={day.format('YYYY-MM-DD')} className="calendar-week">
             {week}
@@ -83,8 +91,6 @@ const Calendar = () => {
 
 export default Calendar;
 
-
-
 const Wrapper = styled.div`
     width: 100%;
     height: 100%;
@@ -105,10 +111,4 @@ const Background = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    .btn_plus {
-        position: fixed;
-        top: 91%;
-    }
-    
 `;
-
