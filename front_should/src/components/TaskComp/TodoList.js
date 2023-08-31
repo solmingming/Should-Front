@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 import TaskwithEdit from "../TaskComp/TaskwithEdit";
-import { useTodoState } from "./TaskContext";
+import { useTodoState, useTodoDispatch } from "./TaskContext";
 
 const TodoList = () => {
-    const todos = useTodoState() || [];
+    const todos = useTodoState();
 
     const undoneTasks = todos.filter((todo) => !todo.done);
     const doneTasks = todos.filter((todo) => todo.done);

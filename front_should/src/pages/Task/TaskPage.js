@@ -2,26 +2,28 @@ import React from "react";
 import styled from "styled-components";
 import Header from "../../components/Header";
 //comp
-import TaskwithEdit from "../../components/TaskComp/TaskwithEdit";
 import TodoList from "../../components/TaskComp/TodoList";
 import TaskCreate from "../../components/TaskComp/TaskCreate";
+import { TodoProvider } from "../../components/TaskComp/TaskContext";
 //img
 import btn_plus from "../images/btn_plus.png";
 
 const TaskPage = () => {
     return (
-        <Wrapper>
-            <Header title="2023.08.23.WED" />
-            <Background>
-                <TodoList />
-                {/*<AddTask>
+        <TodoProvider>
+            <Wrapper>
+                <Header title="2023.08.23.WED" />
+                <Background>
+                    <TodoList />
+                    {/*<AddTask>
                     <div className="btn_plus">
                         <img src={btn_plus} />
                     </div>
     </AddTask>*/}
-                <TaskCreate />
-            </Background>
-        </Wrapper>
+                    <TaskCreate />
+                </Background>
+            </Wrapper>
+        </TodoProvider>
     );
 };
 

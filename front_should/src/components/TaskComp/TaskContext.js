@@ -8,54 +8,6 @@ import React, {
 } from "react";
 import axios from "axios";
 
-// async function fetchInitialTodos() {
-//     try {
-//         const response = await axios.get("/api/task/get/1");
-//         return response.data;
-//     } catch (error) {
-//         console.error("fetch에러", error);
-//         return [];
-//     }
-// }
-
-// const initialTodos = [
-//     {
-//         id: 1,
-//         done: false,
-//         taskTitle: "Go to groceries",
-//         taskTime: "08/23 14:00-15:00",
-//         taskPlace: "Home-plus",
-//     },
-//     {
-//         id: 2,
-//         done: false,
-//         taskTitle: "Go to Dance Acadmey",
-//         taskTime: "08/23 14:00-15:00",
-//         taskPlace: "Home-plus",
-//     },
-//     {
-//         id: 3,
-//         done: false,
-//         taskTitle: "Go to library",
-//         taskTime: "08/23 14:00-15:00",
-//         taskPlace: "Home-plus",
-//     },
-//     {
-//         id: 4,
-//         done: false,
-//         taskTitle: "Go to bookstore",
-//         taskTime: "08/23 14:00-15:00",
-//         taskPlace: "Home-plus",
-//     },
-//     {
-//         id: 5,
-//         done: true,
-//         taskTitle: "Buy some snacks",
-//         taskTime: "08/23 14:00-15:00",
-//         taskPlace: "Home-plus",
-//     },
-// ];
-
 function todoReducer(state, action) {
     switch (action.type) {
         case "CREATE":
@@ -78,12 +30,9 @@ const TodoDispatchContext = createContext();
 const TodoNextIdContext = createContext();
 
 export function TodoProvider({ children }) {
-    const [state, dispatch] = useReducer(todoReducer, []);
-    const nextId = useRef(5);
-
     const [taskData, setTaskData] = useState({
-        id: "",
-        done: "",
+        id: null,
+        done: false,
         taskTitle: "",
         taskTime: "",
         taskPlace: "",
@@ -92,7 +41,7 @@ export function TodoProvider({ children }) {
     const getTask = () => {
         axios({
             method: "GET",
-            url: "back_url",
+            url: "/api/task/get/1",
         })
             .then((response) => {
                 console.log(response);
@@ -104,18 +53,12 @@ export function TodoProvider({ children }) {
             });
     };
 
-    // useEffect(() => {
-    //     async function loadInitialTodos() {
-    //         const initialData = await getTask();
-    //         dispatch({ type: "INITIALIZE", todos: initialData });
-    //     }
-    //     loadInitialTodos();
-    // }, []);
-
     useEffect(() => {
         getTask();
     }, []);
-    console.log(taskData);
+
+    const [state, dispatch] = useReducer(todoReducer, []);
+    const nextId = useRef(5);
 
     return (
         <TodoStateContext.Provider value={state}>

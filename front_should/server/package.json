@@ -1,0 +1,26 @@
+{
+  "name": "chatserver",
+  "version": "1.0.0",
+  "description": "server for chat",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JiwonChoi0805/Should-Front.git"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "should",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JiwonChoi0805/Should-Front/issues"
+  },
+  "homepage": "https://github.com/JiwonChoi0805/Should-Front#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2"
+  }
+}
