@@ -40,13 +40,15 @@ const SignInPage = () => {
           />
         </div>
         <div className="input_signin">
-          <input
-            label="Password"
-            type="password"
+        <input 
+            type="password" 
+            className="input-signin"
             placeholder="  PW"
+            label="Password"
             id="password"
-            value={password}
+            value={password}x
             onChange={(e) => setPassword(e.target.value)}
+        
           />
         </div>
         </div>
