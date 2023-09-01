@@ -32,6 +32,5 @@ const HeaderWrapper = styled.div`
         font-size: 23px;
         color: white;
         font-family: "Lemon";
-        padding-top: 45px;
     }
 `;

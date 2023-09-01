@@ -12,102 +12,100 @@ import mainRecord from "../images/mainRecord.png";
 import mainGochat from "../images/mainGochat.png";
 
 const HomePage = () => {
-    
     return (
         <div className="home-page">
-        <Wrapper>
-            <HomeHeader title="2023.08.23 WED" />
-            <CategoryWrapper>
-                <Titles>
-                    <div className="titleCal">Calendar</div>
-                    <div className="titlePlant">My plants</div>
-                </Titles>
-                <Categories>
-                    <div className="calendar">
-                        <img src={mainCalendar} />
-                    </div>
-                    <div className="myplants">
-                        <img src={mainPlant} />
-                    </div>
-                </Categories>
-                <Titles>
-                    <div className="titleChat">go chat</div>
-                    <div className="titleRec">all my records</div>
-                </Titles>
-                <Categories>
-                    <div className="gochat">
-                        <img src={mainGochat} />
-                    </div>
-                    <div className="allmyrecords">
-                        <img src={mainRecord} />
-                    </div>
-                </Categories>
-            </CategoryWrapper>
-            <TaskWrapper>
-                <div className="title_task">today my tasks</div>
-                <TaskList>
-                    <Tasks
-                        taskNum="task1"
-                        taskTitle="Go to groceries"
-                        taskTime={
-                            <span>
-                                08/23 <br />
-                                14:00-15:00
-                            </span>
-                        }
-                        taskPlace="Home-plus"
-                    />
-                    <Tasks
-                        taskNum="task2"
-                        taskTitle="Returning books to the library"
-                        taskTime={
-                            <span>
-                                08/23 <br />
-                                14:00-15:00
-                            </span>
-                        }
-                        taskPlace="Home-plus"
-                    />
-                    <Tasks
-                        taskNum="task3"
-                        taskTitle={
-                            <span>
-                                Do the <br />
-                                assignments
-                                <br />
-                                _math
-                            </span>
-                        }
-                        taskTime={
-                            <span>
-                                08/23 <br />
-                                14:00-15:00
-                            </span>
-                        }
-                        taskPlace="Home-plus"
-                    />
-                    <Tasks
-                        taskNum="task4"
-                        taskTitle={
-                            <span>
-                                Do the <br />
-                                assignments
-                                <br />
-                                _English
-                            </span>
-                        }
-                        taskTime={
-                            <span>
-                                08/25 <br />
-                                14:00-15:00
-                            </span>
-                        }
-                        taskPlace="Home"
-                    />
-                </TaskList>
-            </TaskWrapper>
-           
-        </Wrapper>
+            <Wrapper>
+                <HomeHeader title="2023.08.23 WED" />
+                <CategoryWrapper>
+                    <Titles>
+                        <div className="titleCal">Calendar</div>
+                        <div className="titlePlant">My plants</div>
+                    </Titles>
+                    <Categories>
+                        <div className="calendar_main">
+                            <img src={mainCalendar} />
+                        </div>
+                        <div className="myplants">
+                            <img src={mainPlant} />
+                        </div>
+                    </Categories>
+                    <Titles>
+                        <div className="titleChat">go chat</div>
+                        <div className="titleRec">all my records</div>
+                    </Titles>
+                    <Categories>
+                        <div className="gochat">
+                            <img src={mainGochat} />
+                        </div>
+                        <div className="allmyrecords">
+                            <img src={mainRecord} />
+                        </div>
+                    </Categories>
+                </CategoryWrapper>
+                <TaskWrapper>
+                    <div className="title_task">today my tasks</div>
+                    <TaskList>
+                        <Tasks
+                            taskNum="task1"
+                            taskTitle="Go to groceries"
+                            taskTime={
+                                <span>
+                                    08/23 <br />
+                                    14:00-15:00
+                                </span>
+                            }
+                            taskPlace="Home-plus"
+                        />
+                        <Tasks
+                            taskNum="task2"
+                            taskTitle="Returning books to the library"
+                            taskTime={
+                                <span>
+                                    08/23 <br />
+                                    14:00-15:00
+                                </span>
+                            }
+                            taskPlace="Home-plus"
+                        />
+                        <Tasks
+                            taskNum="task3"
+                            taskTitle={
+                                <span>
+                                    Do the <br />
+                                    assignments
+                                    <br />
+                                    _math
+                                </span>
+                            }
+                            taskTime={
+                                <span>
+                                    08/23 <br />
+                                    14:00-15:00
+                                </span>
+                            }
+                            taskPlace="Home-plus"
+                        />
+                        <Tasks
+                            taskNum="task4"
+                            taskTitle={
+                                <span>
+                                    Do the <br />
+                                    assignments
+                                    <br />
+                                    _English
+                                </span>
+                            }
+                            taskTime={
+                                <span>
+                                    08/25 <br />
+                                    14:00-15:00
+                                </span>
+                            }
+                            taskPlace="Home"
+                        />
+                    </TaskList>
+                </TaskWrapper>
+            </Wrapper>
         </div>
     );
 };
