@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import "../../fonts/Font.css";
 
 import addimg from "../images/addimg.png";
@@ -37,6 +38,7 @@ const Complete = () => {
                         <div className="tocalendar">일기를 수정할래요</div>
                     </EditBtn>
                 </ButtonContainer>
+                <Footer />
             </Wrapper>
         </>
     );
