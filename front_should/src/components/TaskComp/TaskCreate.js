@@ -12,30 +12,41 @@ const TaskCreate = () => {
     const [taskPlace, setTaskPlace] = useState("");
 
     const dispatch = useTodoDispatch();
-    const nextId = useTodoNextId;
+    const nextId = useTodoNextId();
 
     const onToggle = () => setOpen(!open);
     const onTitleChange = (e) => setTaskTitle(e.target.value);
     const onTimeChange = (e) => setTaskTime(e.target.value);
     const onPlaceChange = (e) => setTaskPlace(e.target.value);
 
-    const onSubmit = (e) => {
-        dispatch({
-            type: "CREATE",
-            todo: {
+    const onSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const data = {
                 id: nextId.current,
                 done: false,
                 taskTitle: taskTitle,
                 taskTime: taskTime,
                 taskPlace: taskPlace,
-            },
-        });
-        setTaskTitle("");
-        setTaskTime("");
-        setTaskPlace("");
-        setOpen(false);
+            };
 
-        nextId.current += 1;
+            dispatch({
+                type: "CREATE",
+                todo: data,
+            });
+
+            setTaskTitle("");
+            setTaskTime("");
+            setTaskPlace("");
+            setOpen(false);
+
+            nextId.current += 1;
+            console.log("포스트 성공");
+            console.log(data);
+        } catch (error) {
+            console.error("create 실패", error);
+        }
     };
 
     return (
