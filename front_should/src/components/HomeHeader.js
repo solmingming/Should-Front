@@ -38,7 +38,6 @@ const HeaderWrapper = styled.div`
         width: 100vw;
         display: flex;
         justify-content: center;
-        padding-top: 55px;
         font-size: 30px;
         color: white;
         font-family: "Lemon";
