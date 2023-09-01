@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 //comp
 import TodoList from "../../components/TaskComp/TodoList";
 import TaskCreate from "../../components/TaskComp/TaskCreate";
 import { TodoProvider } from "../../components/TaskComp/TaskContext";
+
 //img
 import btn_plus from "../images/btn_plus.png";
 
@@ -22,6 +24,7 @@ const TaskPage = () => {
     </AddTask>*/}
                     <TaskCreate />
                 </Background>
+                <Footer />
             </Wrapper>
         </TodoProvider>
     );
@@ -41,7 +44,7 @@ const Wrapper = styled.div`
 `;
 const Background = styled.div`
     width: 90%;
-    height: 80%;
+    height: 75%;
     position: relative;
     background-color: white;
     border-radius: 30px;

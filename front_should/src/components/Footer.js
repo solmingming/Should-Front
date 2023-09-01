@@ -4,35 +4,49 @@ import { useNavigate } from "react-router-dom";
 
 //폰트
 import "../fonts/Font.css";
+//img
+import foot_calendar from "../components/images_comp/foot_calendar.png";
+import foot_home from "../components/images_comp/foot_home.png";
+import foot_my from "../components/images_comp/foot_my.png";
 
-const Footer = (props) => {
-    const { title } = props;
+const Footer = () => {
     const navigate = useNavigate();
 
     return (
         <>
-            <HeaderWrapper>
-                <div class="title">{title}</div>
-            </HeaderWrapper>
+            <FooterWrapper>
+                <Container>
+                    <img src={foot_calendar} />
+                    <img src={foot_home} />
+                    <img src={foot_my} />
+                </Container>
+            </FooterWrapper>
         </>
     );
 };
 
 export default Footer;
 
-const HeaderWrapper = styled.div`
-    width: 100vw;
-    height: 10%;
+const FooterWrapper = styled.div`
+    width: 100%;
+    height: 8%;
     position: fixed;
     bottom: 0;
-    background-color: #27305f;
-    .title {
-        width: 100vw;
-        display: flex;
-        justify-content: center;
-        padding-top: 50px;
-        font-size: 30px;
-        color: white;
-        font-family: "Lemon";
+    background-color: #1a2d4d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 10;
+`;
+const Container = styled.div`
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    img {
+        width: 32px;
+        height: 32px;
     }
 `;
