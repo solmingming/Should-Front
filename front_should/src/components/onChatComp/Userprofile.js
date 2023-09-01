@@ -1,0 +1,33 @@
+import React from "react";
+import styled from "styled-components";
+
+const Userprofile = () => {
+    return (
+        <>
+            <Wrapper>
+                <div className="userMessage">나야 좋았지</div>
+            </Wrapper>
+        </>
+    );
+};
+
+export default Userprofile;
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+    margin-right: 15px;
+    .userMessage {
+        border-radius: 10px;
+        border: 0.3px solid #aeaeae;
+        background-color: white;
+
+        font-size: 14px;
+        font-weight: 400;
+
+        width: 278.66px;
+        height: auto;
+        padding: 5px;
+    }
+`;

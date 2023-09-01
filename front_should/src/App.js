@@ -12,8 +12,6 @@ import KakaoSignUpPage from "./pages/KakaoSignupPage/KakaoSignUpPage";
 import Calendar from "./pages/Calendar/Calendar";
 import DatePage from "./pages/Calendar/DatePage";
 
-import Chat from "./pages/Chat/Chat";
-
 import { TodoProvider } from "./components/TaskComp/TaskContext";
 
 function App() {
