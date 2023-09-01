@@ -41,13 +41,13 @@ const SignInPage = () => {
         </div>
         <div className="input_signin">
         <input 
-            type="text" 
+            type="password" 
             className="input-signin"
             placeholder="  PW"
             label="Password"
             id="password"
             value={password}x
-            onChange={(e) => setUserId(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
         
           />
         </div>

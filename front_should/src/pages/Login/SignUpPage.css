@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     background-color: #ffffff;
-    padding: 10%;
+    
    
 }
 
@@ -43,7 +43,7 @@
 }
 
 input{
-    width: 90%;
+    width: 100%;
     height:2rem; /* 버튼의 폭 조정 */
     padding: 0.2rem; /* 버튼 내부의 여백 조정 */
     font-size: 1.2rem;
@@ -54,6 +54,8 @@ input{
     border:4px solid #1a2d4d;
     cursor: pointer;
     margin-top: 0rem;
+   
+    
 }
 
 .sign-up-button {
@@ -66,7 +68,7 @@ input{
     color: #ffffff;
     cursor: pointer;
     border-radius: 10px;
-    margin-top: 4rem;
+    margin-top: 2rem;
     margin-bottom: 2rem;
     align-items: center;
     justify-content: center;
@@ -74,8 +76,21 @@ input{
     margin-left: 3rem;
 }
 .signupcontainer{
-margin-top:4rem ;
+margin-top:0rem ;
 gap: 4rem;
+align-items: center;
+justify-content: center;
 }
 
 
+.profile-container{
+    margin-top:0.8rem;
+
+    margin-left: 7rem;
+    line-height: 3rem;
+    
+}
+
+.whole-container{
+    margin-top: 0.1rem;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignUpPage.css'; 
 import styled from 'styled-components';
@@ -6,6 +6,8 @@ import styled from 'styled-components';
 
 const SignUpPage = () => {
 
+
+  const defaultImageUrl = '../images/basicprofile.png';
     const navigate = useNavigate();
 
     const handleSignUpCheck = () => {
@@ -15,7 +17,8 @@ const SignUpPage = () => {
 
 
   const [profileImage, setProfileImage] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const fileInputRef = useRef(null);
+  
   const [nickname, setNickname] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -24,55 +27,18 @@ const SignUpPage = () => {
   const [birthMonth, setBirthMonth] = useState('');
   const [birthDay, setBirthDay] = useState('');
 
-  const resizeImage = (file, maxWidth, maxHeight) => {
-    return new Promise((resolve) => {
-      const img = new Image();
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
 
-      img.onload = () => {
-        let width = img.width;
-        let height = img.height;
+    reader.onloadend = () => {
+      setProfileImage(reader.result);
+    };
 
-        if (width > maxWidth) {
-          height *= maxWidth / width;
-          width = maxWidth;
-        }
-
-        if (height > maxHeight) {
-          width *= maxHeight / height;
-          height = maxHeight;
-        }
-        const canvas = document.createElement('canvas');
-        canvas.width = width;
-        canvas.height = height;
-
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(img, 0, 0, width, height);
-
-        canvas.toBlob((blob) => {
-          resolve(blob);
-        }, file.type);
-      };
-
-      img.src = URL.createObjectURL(file);
-    });
-  };
-
-    
-  const handleImageChange = async (event) => {
-    const selectedFile = event.target.files[0];
-
-    if (selectedFile) {
-      const resizedBlob = await resizeImage(selectedFile, 100, 100);
-      setSelectedImage(URL.createObjectURL(resizedBlob));
-      setProfileImage(resizedBlob); // Save resized image for later use
+    if (file) {
+      reader.readAsDataURL(file);
     }
   };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('Uploaded profile image:', profileImage);
-  };
-
   
 
   const generateYears = () => {
@@ -107,18 +73,42 @@ const SignUpPage = () => {
       <div className="whole-container">
         <div className="title">CHAT.DA</div>
 
-        <form onSubmit={handleSubmit}>
-          <div className="profile-image-container">
-            {/* Input for uploading profile image */}
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-            />
-            <ImagePreviewContainer>
-              {selectedImage && <StyledImage src={selectedImage} alt="프로필 사진 미리보기" />}
-            </ImagePreviewContainer>
-          </div>
+        <div className="profile-container">
+      <div className="profile-image-container">
+        <div
+          className="profile-image"
+          style={{
+            backgroundImage: `url(${profileImage || defaultImageUrl})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            width: '6rem', // 프로필 이미지 크기 조정
+            height: '6rem', // 프로필 이미지 크기 조정
+            borderRadius: '50%', // 이미지를 원형으로 자르기
+            display: 'flex', // 부모 요소를 flex로 설정
+            justifyContent: 'center', // 가로 가운데 정렬
+            alignItems: 'center', // 세로 가운데 정렬
+          }}
+        >
+          {profileImage === defaultImageUrl && (
+             <p style={{ textAlign: 'center', margin: 0 }}>
+             {profileImage === null && '기본 프로필 이미지'} {/* profileImage가 null일 때만 텍스트를 렌더링합니다. */}
+           </p>
+          )}
+        </div>
+      </div>
+      <div style={{ Align:'center'}&&{}}>
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleImageUpload}
+        style={{ display: 'none' }}
+        ref={fileInputRef}
+      />
+      </div>
+      <div style={{ textAlign:'center'}&&{}}>
+        <button onClick={() => fileInputRef.current.click()}>이미지 업로드</button>
+      </div>
+    </div>
 
             <div className="signupcontainer">
           
@@ -200,7 +190,7 @@ const SignUpPage = () => {
               SIGN UP
             </button>
            
-            </form>
+          
       </div>
 
 
@@ -214,25 +204,6 @@ const SignUpPage = () => {
  
 export default SignUpPage;
 
-const ImagePreviewContainer = styled.div`
-  display: flex;
-  margin-top:3rem;
-  margin-right:rem;
-  
-  
- 
-`;
-
-const StyledImage = styled.img`
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 100%; 
-  border: 2px solid #000000;
-  background-position: 1rem 1rem;
-  margin-left:3rem;
-  margin-top:3rem;
-  
-`;
 
 const SignUpPageContainer = styled.div`
   /* Your general container styles here */
@@ -240,6 +211,7 @@ const SignUpPageContainer = styled.div`
 
   background-image: url("../images/basicprofile.png");
   background-position: 1rem 1rem;
+  
 `;
 
     

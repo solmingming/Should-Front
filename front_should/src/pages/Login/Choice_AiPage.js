@@ -15,12 +15,13 @@ const Choice_AiPage = () => {
       <div className="content-container">
         <h1 className="maintitle">CHAT.DA</h1>
         {/* Add the Sign Up button */}
+        <div className="subtitle"> !Select Ai!</div>
         
-        <h1 >ai를 골라주세요</h1>
         
         <button className="sign-up-button" onClick={handleSignUpCheck}>
-          Start chda!
+          Start Chat da!
         </button>
+        
       </div>
     </div>
   );
