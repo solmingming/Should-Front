@@ -8,6 +8,16 @@ import React, {
 } from "react";
 import axios from "axios";
 
+const initialTodos = [
+    {
+        id: 1,
+        done: false,
+        taskTitle: "슈드기능 구현하기",
+        taskTime: "토요일 전까지",
+        taskPlace: "카페 슈드",
+    },
+];
+
 function todoReducer(state, action) {
     switch (action.type) {
         case "CREATE":
@@ -18,7 +28,7 @@ function todoReducer(state, action) {
             );
         case "REMOVE":
             return state.filter((todo) => todo.id !== action.id);
-        case "INITIALIZE":
+        case "SET_TODOS":
             return action.todos;
         default:
             throw new Error(`Unhandled action type: ${action.type}`);
@@ -30,35 +40,41 @@ const TodoDispatchContext = createContext();
 const TodoNextIdContext = createContext();
 
 export function TodoProvider({ children }) {
-    const [taskData, setTaskData] = useState({
-        id: null,
-        done: false,
-        taskTitle: "",
-        taskTime: "",
-        taskPlace: "",
-    });
-
-    const getTask = () => {
-        axios({
-            method: "GET",
-            url: "/api/task/get/1",
-        })
-            .then((response) => {
-                console.log(response);
-                setTaskData(response.data);
-            })
-            .catch((error) => {
-                console.log(error);
-                throw new Error(error);
-            });
-    };
+    const [state, dispatch] = useReducer(todoReducer, initialTodos);
+    const nextId = useRef(3);
 
     useEffect(() => {
-        getTask();
+        // 데이터를 백엔드 서버로부터 받아오는 함수
+        const getData = async () => {
+            try {
+                const response = await axios.get("/api/task/get/1"); // 백엔드 서버의 API 엔드포인트로 요청 보내기
+                dispatch({ type: "SET_TODOS", todos: response.data }); // 받아온 데이터로 상태 초기화
+                console.log("겟 성공");
+                console.log(response.data);
+            } catch (error) {
+                console.error("겟 실패", error);
+            }
+        };
+        getData(); // 함수 실행
+        sendData();
     }, []);
 
-    const [state, dispatch] = useReducer(todoReducer, []);
-    const nextId = useRef(5);
+    // 데이터를 백엔드 서버로 보내는 함수
+    const sendData = async (data) => {
+        try {
+            await axios.post("/api/task/save", {
+                id: data.id,
+                done: false,
+                taskTitle: data.taskTitle,
+                taskTime: data.taskTime,
+                taskPlace: data.taskPlace,
+            }); // 백엔드 서버의 API 엔드포인트로 데이터를 POST로 보내기
+            console.log("포스트 성공");
+            console.log(data);
+        } catch (error) {
+            console.error("포스트 실패", error);
+        }
+    };
 
     return (
         <TodoStateContext.Provider value={state}>
