@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';  
+import { useParams } from 'react-router-dom'; 
 import styled, { createGlobalStyle } from "styled-components";
 import Header from "../../components/Header";
 import moment from 'moment';
@@ -12,8 +13,11 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Calendar = () => {
+
+  const { date } = useParams();
   const [selectedDate, setSelectedDate] = useState(moment());
 
+  
   const renderCalendar = () => {
     const monthStart = selectedDate.clone().startOf('month');
     const monthEnd = selectedDate.clone().endOf('month');
@@ -25,29 +29,24 @@ const Calendar = () => {
     let day = startDate.clone();
     while (day.isSameOrBefore(endDate, 'day')) {
       week.push(
-        <Link to={`/date/${day.format('YYYY-MM-DD')}`}>
-  <div
-    key={day.format('YYYY-MM-DD')}
-    className="calendar-day-link"
-    style={{ textDecoration: 'none' }}
-  >
-    {day.format('D')}
-  </div>
-</Link>
-
+        <div key={day.format('YYYY-MM-DD')}>
+        <Link to={`/date/${day.format('YYYY-MM-DD')}`} className="calendar-day-link" style={{ textDecoration: 'none' }}> 
+        {day.format('D')}
+        </Link>
+        </div>
+    );
+        
+    if (day.day() === 6) {
+      calendar.push(
+        <div key={day.format('YYYY-MM-DD')} className="calendar-week">
+          {week}
+        </div>
       );
-
-      if (day.day() === 6) {
-        calendar.push(
-          <div key={day.format('YYYY-MM-DD')} className="calendar-week">
-            {week}
-          </div>
-        );
-        week = [];
-      }
-
-      day.add(1, 'day');
+      week = [];
     }
+
+    day.add(1, 'day');
+  }
 
     return calendar;
   };
@@ -65,12 +64,17 @@ const Calendar = () => {
       <GlobalStyle />
       <Header title="calendar" />
       <Background>
+
         <div className="calendar-container">
-          <header className="calendar-header">
-            <h1>{selectedDate.format('MMMM YYYY')}</h1>
+        <div className="calendar-footer">
+            <button className="allmybutton">All my</button>
+          </div>
+        <header className="calendar-header">
             <button onClick={prevMonth}>Prev</button>
+            <h1>{selectedDate.format('MMMM YYYY')}</h1>
             <button onClick={nextMonth}>Next</button>
           </header>
+          
           <div className="calendar">
             <div className="calendar-days-header">
               <div>SUN</div>
@@ -83,6 +87,7 @@ const Calendar = () => {
             </div>
             <div className="calendar-body">{renderCalendar()}</div>
           </div>
+          
         </div>
       </Background>
     </Wrapper>
@@ -105,7 +110,7 @@ const Background = styled.div`
     width: 90%;
     height: 80%;
     position: relative;
-    background-color: white;
+    background-color: #e7e7e7;
     border-radius: 30px;
     top: 14%;
     display: flex;
