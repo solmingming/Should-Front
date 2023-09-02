@@ -46,7 +46,7 @@ function App() {
                     <Route path="/calendar" element={<Calendar />} />
                     <Route path="/startchatdapage" element={<StartChatDaPage />} />
                     <Route path="/date/:date" element={<DatePage />} />
-                    <Route path="/" element={<Calendar />} />
+                    <Route path="/" element={<StartChatDaPage />} />
                 </Routes>
             </Router>
         </TodoProvider>
