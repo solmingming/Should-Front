@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const Userprofile = () => {
+const Userprofile = ({ message }) => {
     return (
         <>
             <Wrapper>
-                <div className="userMessage"></div>
+                <div className="userMessage">{message}</div>
             </Wrapper>
         </>
     );

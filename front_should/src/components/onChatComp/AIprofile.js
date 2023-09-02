@@ -2,12 +2,12 @@ import React from "react";
 import ai_img from "../images_comp/aiprofile.png";
 import styled from "styled-components";
 
-const AIprofile = () => {
+const AIprofile = ({ message }) => {
     return (
         <>
             <Wrapper>
                 <img src={ai_img} />
-                <div className="aiMessage"></div>
+                <div className="aiMessage">{message}</div>
             </Wrapper>
         </>
     );
