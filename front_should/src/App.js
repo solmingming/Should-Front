@@ -43,7 +43,7 @@ function App() {
                         element={<StartChatDaPage />}
                     />
                     <Route path="/calendar/:date" element={<DatePage />} />
-                    <Route path="/" element={<StartChatDaPage />} />
+                    <Route path="/" element={<Calendar />} />
                 </Routes>
             </Router>
         </TodoProvider>
