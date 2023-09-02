@@ -13,6 +13,9 @@ import Choice_AiPage from "./pages/Login/Choice_AiPage";
 import StartChatDaPage from "./pages/StartChatda/StartChatDaPage";
 import SelectSignUpPage from "./pages/SelectSignUpPage/SelectSignUpPage";
 import KakaoSignUpPage from "./pages/KakaoSignupPage/KakaoSignUpPage";
+import AllMyRecordPage from "./pages/AllMyRecordPage";
+import PlantPage from "./pages/PlantPage";
+
 
 import Calendar from "./pages/Calendar/Calendar";
 import DatePage from "./pages/Calendar/DatePage";
@@ -33,6 +36,9 @@ function App() {
                     <Route path="/signuppage" element={<SignUpPage />} />
                     <Route path="/choiceaipage" element={<Choice_AiPage />} />
                     <Route path="/welcomepage" element={<WelcomePage />} />
+                    <Route path="/allmyrecordpage" element={<AllMyRecordPage />} />
+                    <Route path="/plantpage" element={<PlantPage />} />
+                
                     <Route
                         path="/selectsignuppage"
                         element={<SelectSignUpPage />}
