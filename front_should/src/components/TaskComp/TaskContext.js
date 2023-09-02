@@ -56,25 +56,8 @@ export function TodoProvider({ children }) {
             }
         };
         getData(); // 함수 실행
-        sendData();
+        //sendData();
     }, []);
-
-    // 데이터를 백엔드 서버로 보내는 함수
-    const sendData = async (data) => {
-        try {
-            await axios.post("/api/task/save", {
-                userId: 1,
-                done: false,
-                taskTitle: data.taskTitle,
-                taskTime: data.taskTime,
-                taskPlace: data.taskPlace,
-            }); // 백엔드 서버의 API 엔드포인트로 데이터를 POST로 보내기
-            console.log("포스트 성공");
-            console.log(data);
-        } catch (error) {
-            console.error("포스트 실패", error);
-        }
-    };
 
     return (
         <TodoStateContext.Provider value={state}>
@@ -86,6 +69,23 @@ export function TodoProvider({ children }) {
         </TodoStateContext.Provider>
     );
 }
+
+// 데이터를 백엔드 서버로 보내는 함수
+export const sendData = async (data) => {
+    try {
+        await axios.post("/api/task/save", {
+            userId: 1,
+            done: false,
+            taskTitle: data.taskTitle,
+            taskTime: data.taskTime,
+            taskPlace: data.taskPlace,
+        }); // 백엔드 서버의 API 엔드포인트로 데이터를 POST로 보내기
+        console.log("포스트 성공");
+        console.log(data);
+    } catch (error) {
+        console.error("포스트 실패", error);
+    }
+};
 
 export function useTodoState() {
     return useContext(TodoStateContext);

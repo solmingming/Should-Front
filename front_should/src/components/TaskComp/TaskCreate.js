@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import { MdAdd } from "react-icons/md";
 import "../../fonts/Font.css";
 import { useTodoDispatch, useTodoNextId } from "./TaskContext";
+import { sendData } from "./TaskContext";
 
 const TaskCreate = () => {
     const [open, setOpen] = useState(false);
@@ -43,6 +44,9 @@ const TaskCreate = () => {
 
             console.log("포스트 성공");
             console.log(data);
+
+            // 데이터를 백엔드 서버로 보내기
+            await sendData(data);
         } catch (error) {
             console.error("create 실패", error);
         }
