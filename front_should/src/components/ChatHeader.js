@@ -10,13 +10,16 @@ const ChatHeader = (props) => {
     const { title } = props;
     const navigate = useNavigate();
 
+    const gotoHome = () => {
+        navigate("/homepage");
+    };
     return (
         <>
             <HeaderWrapper>
                 <MainLogo>
                     <div class="left"></div>
-                    <div class="title">{title}</div>
-                    <img src={homeIcon} />
+                    <div class="title_chat">{title}</div>
+                    <img onClick={gotoHome} src={homeIcon} />
                 </MainLogo>
             </HeaderWrapper>
         </>
@@ -48,7 +51,7 @@ const MainLogo = styled.div`
         width: 35px;
         height: 35px;
     }
-    .title {
+    .title_chat {
         font-size: 23px;
         color: white;
         font-family: "Lemon";

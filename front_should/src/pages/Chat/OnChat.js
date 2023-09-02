@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
 import ChatHeader from "../../components/ChatHeader";
 
 import AIprofile from "../../components/onChatComp/AIprofile";
@@ -7,6 +8,21 @@ import Userprofile from "../../components/onChatComp/Userprofile";
 import mic_btn from "../images/mic_btn.png";
 
 const OnChat = () => {
+    const [userMessage, setUserMessage] = useState("");
+    const [aiMessage, setAiMessage] = useState("");
+    const handleInputChange = (e) => {
+        setUserMessage(e.target.value);
+    };
+    const handleSubmit = async () => {
+        try {
+            const response = await axios.post("/url", { userMessage });
+            setAiMessage(response.data.response);
+            setUserMessage("");
+        } catch (error) {
+            console.error("대화 에러", error);
+        }
+    };
+
     return (
         <Wrapper>
             <ChatHeader title="2023.08.23.WED" />

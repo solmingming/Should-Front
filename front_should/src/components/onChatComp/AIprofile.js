@@ -7,7 +7,7 @@ const AIprofile = () => {
         <>
             <Wrapper>
                 <img src={ai_img} />
-                <div className="aiMessage">오늘 하루는 어땠어?</div>
+                <div className="aiMessage"></div>
             </Wrapper>
         </>
     );

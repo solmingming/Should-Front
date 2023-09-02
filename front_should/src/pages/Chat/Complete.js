@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import "../../fonts/Font.css";
+import axios from "axios";
 
 import addimg from "../images/addimg.png";
 import editimg from "../images/editimg.png";
 
 const Complete = () => {
+    const [diaryData, setDiaryData] = useState({});
+    useEffect(() => {
+        const apiurl = "/api/diary/get/1";
+
+        axios
+            .get(apiurl)
+            .then((response) => {
+                setDiaryData(response.data);
+            })
+            .catch((error) => {
+                console.error("일기데이터 GET 실패", error);
+            });
+    }, []);
+
     return (
         <>
             <Wrapper>
@@ -17,15 +32,16 @@ const Complete = () => {
                     <div className="keyword_img"></div>
                 </KeywordContainer>
                 <DiaryContainer>
-                    <div className="diary_title">제목: 돈까스 어쩌구저쩌구</div>
-                    <div className="diary_date">2023년 8월 20일, 금요일</div>
+                    <div className="diary_title">제목: {diaryData.title}</div>
+                    <div className="diary_date">{diaryData.date}</div>
                     <div className="diary_content">
-                        오늘은 정말 피곤한 하루였다. 아침부터 밤까지 계획했던
+                        {diaryData.content}
+                        {/* 오늘은 정말 피곤한 하루였다. 아침부터 밤까지 계획했던
                         일들이 순조롭게 진행되지 않아서 마음 속으로 많은
                         아쉬움과 답답함을 느꼈다. 특히 오늘은 평소처럼 운동을
                         하러 가는 것도 포기해야 했던 것이 가장 아쉬웠다. 하루
                         종일 바쁘게 지냈음에도 할 일은 끝이 없는 것 같아서
-                        마음이 무겁게 느껴졌다.
+                        마음이 무겁게 느껴졌다. */}
                     </div>
                 </DiaryContainer>
                 <ButtonContainer>
