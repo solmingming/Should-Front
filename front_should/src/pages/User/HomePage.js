@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import "../../fonts/Font.css";
+import { useNavigate } from "react-router-dom";
 
 //컴포넌트
 import HomeHeader from "../../components/HomeHeader";
@@ -12,6 +13,16 @@ import mainRecord from "../images/mainRecord.png";
 import mainGochat from "../images/mainGochat.png";
 
 const HomePage = () => {
+    const navigate = useNavigate();
+    const gotoCalendar = () => {
+        navigate("/calendar");
+    };
+    const gotoChat = () => {
+        navigate("/onchat");
+    };
+    const gotoTasks = () => {
+        navigate("/taskpage");
+    };
     return (
         <div className="home-page">
             <Wrapper>
@@ -23,7 +34,7 @@ const HomePage = () => {
                     </Titles>
                     <Categories>
                         <div className="calendar_main">
-                            <img src={mainCalendar} />
+                            <img onClick={gotoCalendar} src={mainCalendar} />
                         </div>
                         <div className="myplants">
                             <img src={mainPlant} />
@@ -35,7 +46,7 @@ const HomePage = () => {
                     </Titles>
                     <Categories>
                         <div className="gochat">
-                            <img src={mainGochat} />
+                            <img onClick={gotoChat} src={mainGochat} />
                         </div>
                         <div className="allmyrecords">
                             <img src={mainRecord} />
@@ -44,7 +55,7 @@ const HomePage = () => {
                 </CategoryWrapper>
                 <TaskWrapper>
                     <div className="title_task">today my tasks</div>
-                    <TaskList>
+                    <TaskList onClick={gotoTasks}>
                         <Tasks
                             taskNum="task1"
                             taskTitle="Go to groceries"

@@ -5,7 +5,7 @@ const Userprofile = () => {
     return (
         <>
             <Wrapper>
-                <div className="userMessage">나야 좋았지</div>
+                <div className="userMessage"></div>
             </Wrapper>
         </>
     );

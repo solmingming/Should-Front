@@ -24,7 +24,7 @@ const TaskCreate = () => {
 
         try {
             const data = {
-                id: nextId.current,
+                userId: 1,
                 done: false,
                 taskTitle: taskTitle,
                 taskTime: taskTime,
@@ -41,7 +41,6 @@ const TaskCreate = () => {
             setTaskPlace("");
             setOpen(false);
 
-            nextId.current += 1;
             console.log("포스트 성공");
             console.log(data);
         } catch (error) {

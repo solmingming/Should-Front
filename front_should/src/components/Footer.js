@@ -12,12 +12,21 @@ import foot_my from "../components/images_comp/foot_my.png";
 const Footer = () => {
     const navigate = useNavigate();
 
+    const gotoCalendar = () => {
+        navigate("/calendar");
+    };
+    const gotoHome = () => {
+        navigate("/homepage");
+    };
+    const gotoMy = () => {
+        navigate("/mypage");
+    };
     return (
         <>
             <FooterWrapper>
                 <Container>
-                    <img src={foot_calendar} />
-                    <img src={foot_home} />
+                    <img onClick={gotoCalendar} src={foot_calendar} />
+                    <img onClick={gotoHome} src={foot_home} />
                     <img src={foot_my} />
                 </Container>
             </FooterWrapper>
